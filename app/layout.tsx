@@ -14,27 +14,27 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://leadertask.io"),
-  title: "LeaderTask — Task management built for leaders",
-  description: "Slim team task management for the Leader Suite. Tasks born from real data, team-wide visibility, and follow-up tracking so nothing slips between check-ins.",
-  applicationName: "LeaderTask",
+  metadataBase: new URL("https://leaderstreams.io"),
+  title: "LeaderStreams — Social publishing for your entire network",
+  description: "Schedule and publish to every social channel for your whole team from one calendar. Built for field leaders in network marketing.",
+  applicationName: "LeaderStreams",
   manifest: "/manifest.webmanifest",
   appleWebApp: {
     capable: true,
-    title: "LeaderTask",
+    title: "LeaderStreams",
     statusBarStyle: "default",
   },
   openGraph: {
     type: "website",
-    siteName: "LeaderTask",
-    title: "LeaderTask — Task management built for leaders",
-    description: "Tasks born from real LeaderHQ data — never start from scratch. Team-wide visibility, priority tracking, and follow-up reminders all in one.",
-    url: "https://leadertask.io",
+    siteName: "LeaderStreams",
+    title: "LeaderStreams — Every post, scheduled and published.",
+    description: "Social publishing built for field leaders — schedule and publish to every channel for your whole team from one calendar.",
+    url: "https://leaderstreams.io",
   },
   twitter: {
     card: "summary_large_image",
-    title: "LeaderTask — Task management built for leaders",
-    description: "Tasks born from real LeaderHQ data — never start from scratch. Team-wide visibility, priority tracking, and follow-up reminders all in one.",
+    title: "LeaderStreams — Every post, scheduled and published.",
+    description: "Social publishing built for field leaders — schedule and publish to every channel for your whole team from one calendar.",
   },
 };
 

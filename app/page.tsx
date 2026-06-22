@@ -1,18 +1,19 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { SuiteBar, SiteNav, SiteFooter, FadeIn, TypewriterHeadline } from '@leader/marketing-ui';
-import { TaskListMock } from './_marketing/mocks';
+import { PostQueueMock } from './_marketing/mocks';
 import { MarketingIcon, type MarketingIconName } from './_marketing/icons';
 
-const SITE_URL = 'https://leadertask.io';
-const APP_URL = 'https://task.leaderhq.io';
+const SITE_URL = 'https://leaderstreams.io';
+const APP_URL = 'https://streams.leaderhq.io';
+const WORDMARK_SRC = '/brand/LeaderStreams_wordmark.png';
 
-const TASK_PHRASES = [
-  'leaders.',
+const STREAMS_PHRASES = [
+  'your whole network.',
+  'every platform.',
   'field leaders.',
-  'your whole team.',
-  'top closers.',
-  'fast movers.',
+  'your entire team.',
+  'top producers.',
 ] as const;
 
 const NAV_LINKS = [
@@ -37,7 +38,7 @@ const FOOTER_COLUMNS = [
     links: [
       { label: 'Sales Teams', href: '/for-teams' },
       { label: 'Field Leaders', href: '/for-teams' },
-      { label: 'Executives', href: '/for-conferences' },
+      { label: 'Network Marketing', href: '/for-teams' },
       { label: 'Blog & Resources', href: '/blog' },
     ],
   },
@@ -55,23 +56,23 @@ const FOOTER_COLUMNS = [
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: 'LeaderTask — Task management built for leaders',
+  title: 'LeaderStreams — Social publishing for your entire network',
   description:
-    'Slim team task management for the Leader Suite. Tasks born from real LeaderHQ data — never start from scratch.',
+    'Schedule and publish to every social channel for your whole team from one calendar. Built for field leaders in network marketing.',
   alternates: { canonical: '/' },
   openGraph: {
     type: 'website',
-    siteName: 'LeaderTask',
-    title: 'LeaderTask — Task management built for leaders',
+    siteName: 'LeaderStreams',
+    title: 'LeaderStreams — Every post, scheduled and published.',
     description:
-      'Tasks born from real LeaderHQ data. Team-wide visibility, priority tracking, and follow-up reminders so nothing slips.',
+      'Social publishing built for field leaders — schedule and publish to every channel for your whole team from one calendar.',
     url: SITE_URL,
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'LeaderTask — Task management built for leaders',
+    title: 'LeaderStreams — Every post, scheduled and published.',
     description:
-      'Tasks born from real LeaderHQ data. Team-wide visibility, priority tracking, and follow-up reminders so nothing slips.',
+      'Social publishing built for field leaders — schedule and publish to every channel for your whole team from one calendar.',
   },
 };
 
@@ -80,7 +81,8 @@ export default function HomePage() {
     <div className="flex min-h-screen flex-col bg-white text-zinc-900">
       <SuiteBar appUrl={APP_URL} />
       <SiteNav
-        productSuffix="Task"
+        productSuffix="Streams"
+        wordmarkSrc={WORDMARK_SRC}
         links={NAV_LINKS}
         ctaLabel="Get Started Free"
         ctaHref={`${APP_URL}/signup`}
@@ -90,14 +92,15 @@ export default function HomePage() {
         <Hero />
         <TrustBand />
         <FeaturesGrid />
-        <DataBornSection />
+        <TeamPublishingSection />
         <HowItWorksSection />
         <IntegrationsSection />
         <PricingSection />
         <FinalCta />
       </main>
       <SiteFooter
-        productSuffix="Task"
+        productSuffix="Streams"
+        wordmarkSrc={WORDMARK_SRC}
         columns={FOOTER_COLUMNS}
       />
     </div>
@@ -114,20 +117,20 @@ function Hero() {
         aria-hidden
         style={{
           background:
-            'radial-gradient(80% 520px at 50% -10%, color-mix(in srgb, #0d1b2e 9%, transparent), transparent)',
+            'radial-gradient(80% 520px at 50% -10%, color-mix(in srgb, #06163E 9%, transparent), transparent)',
         }}
       />
       <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 pb-16 pt-8 md:px-6 lg:grid-cols-2 lg:gap-12 lg:pb-24 lg:pt-12">
         <FadeIn>
           <TypewriterHeadline
-            staticPrefix="Tasks built for"
-            phrases={TASK_PHRASES}
+            staticPrefix="Social publishing for"
+            phrases={STREAMS_PHRASES}
             className="text-4xl font-extrabold leading-[1.08] tracking-tight sm:text-5xl lg:text-[3.4rem]"
           />
           <p className="mt-5 max-w-xl text-lg leading-relaxed text-zinc-600">
-            Task management that starts with your real LeaderHQ data — never a
-            blank page. Team-wide visibility, priority tracking, and follow-up
-            reminders so nothing slips between check-ins.
+            Schedule and publish to every social channel for your whole team
+            from one calendar. Load a week of content in 20 minutes — then
+            LeaderStreams handles the rest.
           </p>
           <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
             <a
@@ -146,12 +149,12 @@ function Hero() {
           <p className="mt-5 text-sm text-zinc-500">
             Free to start. No credit card required.{' '}
             <strong className="font-semibold text-zinc-700">
-              Works with your entire Leader Suite.
+              Connects to your entire Leader Suite.
             </strong>
           </p>
         </FadeIn>
         <FadeIn delay={120} className="flex justify-center lg:justify-end">
-          <TaskListMock />
+          <PostQueueMock />
         </FadeIn>
       </div>
     </section>
@@ -191,64 +194,64 @@ interface Feature {
 
 const FEATURES: Feature[] = [
   {
-    title: 'Data-born tasks.',
-    body: 'Tasks created automatically from your real LeaderHQ data — leads, meetings, and follow-ups. Never stare at a blank task board again.',
-    icon: 'target',
-  },
-  {
-    title: 'Team-wide visibility.',
-    body: 'See every task across your entire downline. Leaders, reps, and coaches all in one place — so nothing slips between check-ins.',
-    icon: 'users',
-  },
-  {
-    title: 'Priority & status.',
-    body: 'Mark tasks as low, medium, or high priority. Track to-do, in progress, and done across the whole team in a single list view.',
-    icon: 'bar-chart',
-  },
-  {
-    title: 'Subtasks.',
-    body: 'Break complex actions into smaller steps. Subtask progress rolls up to the parent so leaders see at a glance what\'s complete.',
-    icon: 'clipboard',
-  },
-  {
-    title: 'Assignee tracking.',
-    body: 'Assign any task to a team member and track ownership clearly. No more "I thought you were doing that" moments.',
-    icon: 'check-circle',
-  },
-  {
-    title: 'Due dates & reminders.',
-    body: 'Set due dates and get Postmark email reminders automatically. Critical follow-ups never fall through the cracks.',
-    icon: 'clock',
-  },
-  {
-    title: 'Comments & context.',
-    body: 'Thread conversation right on the task — notes, decisions, and updates stay with the work, not buried in Slack.',
-    icon: 'bell',
-  },
-  {
-    title: 'Workspace & lists.',
-    body: 'Organize by workspace (your team) and list (campaigns, events, pipelines). Structure that matches how field teams actually operate.',
-    icon: 'building',
-  },
-  {
-    title: 'Leader Suite SSO.',
-    body: 'One login. If you\'re signed into LeaderLeads or LeaderCal, you\'re already in. No new password, no extra friction.',
-    icon: 'link',
-  },
-  {
-    title: 'Ingest API.',
-    body: 'POST tasks from any other tool via your personal ingest key. Webhooks, Zapier, or raw API — tasks flow in from anywhere.',
-    icon: 'share',
-  },
-  {
-    title: 'Mobile-first design.',
-    body: 'Built for the road. Full task management from your phone — no feature compromise on a small screen.',
+    title: 'Team content calendar.',
+    body: 'One calendar for your entire downline. See and schedule every post across every team member from a single view.',
     icon: 'calendar',
   },
   {
-    title: 'Onboarding tour.',
-    body: 'First-time setup walks you through every key feature in under two minutes. Powered by driver.js — smooth and in-brand.',
+    title: 'Multi-platform publishing.',
+    body: 'Facebook, Instagram, LinkedIn, X, TikTok, YouTube — publish to every channel your team uses without switching tabs.',
+    icon: 'share',
+  },
+  {
+    title: 'Content queue.',
+    body: 'Load a week of posts in 20 minutes. LeaderStreams drips them out on your schedule so you stay consistent without being online 24/7.',
+    icon: 'clipboard',
+  },
+  {
+    title: 'Approval workflow.',
+    body: 'Leaders review and approve content before it goes live. Keep the brand voice on point across every rep on the team.',
+    icon: 'check-circle',
+  },
+  {
+    title: 'Analytics dashboard.',
+    body: 'See what\'s driving engagement across the team. Best times, top posts, and platform breakdowns — all in one place.',
+    icon: 'bar-chart',
+  },
+  {
+    title: 'Content library.',
+    body: 'Save your best-performing posts and reuse them. Build a library of proven content your whole team can pull from.',
+    icon: 'building',
+  },
+  {
+    title: 'Brand voice AI.',
+    body: 'Generate on-brand captions in seconds. Train LeaderStreams on your voice and let it draft posts your team can approve and send.',
+    icon: 'target',
+  },
+  {
+    title: 'Social templates.',
+    body: 'Proven post formats for network marketers — prospecting, recognition, announcements, and more. Start from a template, not a blank page.',
+    icon: 'users',
+  },
+  {
+    title: 'Leader Suite SSO.',
+    body: 'One login across the whole suite. If you\'re in LeaderLeads or LeaderCal, you\'re already in LeaderStreams. No extra password.',
+    icon: 'link',
+  },
+  {
+    title: 'LeaderSend integration.',
+    body: 'Turn your best social posts into email campaigns automatically. One piece of content, two channels, zero extra work.',
+    icon: 'bell',
+  },
+  {
+    title: 'Mobile-first.',
+    body: 'Schedule, approve, and publish from your phone. Full feature parity on mobile — no compromises for field leaders on the go.',
     icon: 'trophy',
+  },
+  {
+    title: 'RSS & auto-publish.',
+    body: 'Connect any RSS feed and LeaderStreams auto-queues the content. Industry news, company updates, and team wins — on autopilot.',
+    icon: 'clock',
   },
 ];
 
@@ -258,10 +261,10 @@ function FeaturesGrid() {
       <FadeIn>
         <div className="text-center">
           <h2 className="text-3xl font-bold tracking-tight text-brand-navy sm:text-4xl">
-            Everything a leader needs to run their team.
+            Everything your team needs to stay visible.
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-lg text-zinc-600">
-            Built for the pace of field leadership — not the pace of a nine-to-five.
+            Built for the pace of field leadership — batch once, publish everywhere, all week long.
           </p>
         </div>
       </FadeIn>
@@ -284,32 +287,32 @@ function FeaturesGrid() {
   );
 }
 
-/* ------------------------------------------------- Data-Born Tasks Section -- */
+/* -------------------------------------------- Team Publishing Section -- */
 
-function DataBornSection() {
+function TeamPublishingSection() {
   return (
     <section
       className="relative overflow-hidden text-white"
-      style={{ background: '#0d1b2e' }}
+      style={{ background: '#06163E' }}
     >
       <div className="mx-auto max-w-6xl px-4 py-20 md:px-6 md:py-24 lg:grid lg:grid-cols-2 lg:gap-16 lg:items-center">
         <FadeIn>
           <p className="text-sm font-semibold uppercase tracking-wider text-brand-green">
-            LeaderTask + LeaderLeads
+            LeaderStreams + Your Whole Team
           </p>
           <h2 className="mt-4 text-3xl font-bold leading-[1.12] tracking-tight sm:text-4xl lg:text-[2.75rem]">
-            Tasks born from
+            One calendar.
             <br />
-            your real data.
+            Every rep. Every channel.
           </h2>
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-zinc-300">
-            When a lead comes in through your LeaderLeads card, a follow-up
-            task appears automatically — already titled, already assigned,
-            already due. No copy-paste. No starting from scratch.
+            Stop chasing your team to post. Load the queue once and every rep
+            stays active on every platform — consistent, on-brand, and on
+            schedule — without any of them needing to think about it.
           </p>
           <p className="mt-6 border-l-2 border-brand-green pl-4 text-base font-medium text-zinc-200">
-            The only task tool wired directly into your field-leader workflow.
-            Every connection becomes an action.
+            The only social publishing tool built for the network marketing
+            team structure. One leader, dozens of reps, one content strategy.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <a
@@ -319,72 +322,42 @@ function DataBornSection() {
               Start for free →
             </a>
             <Link
-              href="https://leaderleads.io"
+              href="/for-teams"
               className="inline-flex min-h-[44px] items-center justify-center rounded-xl border border-white/20 px-5 text-sm font-semibold text-zinc-200 transition hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
             >
-              Get your LeaderLeads card
+              See team features
             </Link>
           </div>
         </FadeIn>
 
         <FadeIn delay={120} className="mt-12 flex justify-center lg:mt-0 lg:justify-end">
-          <div className="relative w-full max-w-[320px]">
-            <div
-              className="relative rounded-2xl p-5 shadow-xl"
-              style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.12)' }}
-            >
-              <p className="text-xs font-semibold uppercase tracking-widest text-brand-green">
-                LeaderLeads Card Scan
-              </p>
-              <p className="mt-2 text-base font-bold text-white">Alex Leader</p>
-              <p className="text-xs text-zinc-400">VP of Sales · Summit Team</p>
-              <div className="mt-4 flex gap-2">
-                <div className="flex-1 rounded-lg bg-white/10 py-2 text-center text-xs font-semibold text-white">
-                  Call
+          <div className="relative w-full max-w-[320px] space-y-3">
+            {[
+              { platform: 'LinkedIn', time: 'Today 9:00 AM', text: 'Excited to welcome three new leaders to the Summit team this week! 🎉', status: 'scheduled' },
+              { platform: 'Facebook', time: 'Today 12:00 PM', text: 'What does success look like in network marketing? It looks like consistency.', status: 'scheduled' },
+              { platform: 'Instagram', time: 'Tomorrow 8:00 AM', text: 'Behind the scenes of our Monday team call. This is what momentum looks like.', status: 'draft' },
+            ].map((post) => (
+              <div
+                key={post.platform}
+                className="rounded-xl p-4"
+                style={{ background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.12)' }}
+              >
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-xs font-bold text-brand-green">{post.platform}</span>
+                  <span
+                    className="rounded-full px-2 py-0.5 text-[10px] font-semibold"
+                    style={{
+                      background: post.status === 'scheduled' ? 'rgba(92,172,35,0.18)' : 'rgba(255,255,255,0.08)',
+                      color: post.status === 'scheduled' ? '#5CAC23' : '#a1a1aa',
+                    }}
+                  >
+                    {post.status}
+                  </span>
                 </div>
-                <div className="flex-1 rounded-lg bg-white/10 py-2 text-center text-xs font-semibold text-white">
-                  Email
-                </div>
-                <div
-                  className="flex-1 rounded-lg py-2 text-center text-xs font-semibold text-white"
-                  style={{ background: '#5cb85c' }}
-                >
-                  Save
-                </div>
+                <p className="text-xs leading-relaxed text-zinc-300">{post.text}</p>
+                <p className="mt-2 text-[10px] text-zinc-500">{post.time}</p>
               </div>
-            </div>
-
-            <div className="flex items-center justify-center py-3">
-              <div className="flex flex-col items-center gap-1 text-brand-green">
-                <div className="h-8 w-px bg-brand-green/40" />
-                <span className="text-lg leading-none">↓</span>
-              </div>
-            </div>
-
-            <div
-              className="rounded-2xl p-5 shadow-xl"
-              style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.12)' }}
-            >
-              <p className="text-xs font-semibold uppercase tracking-widest text-brand-green">
-                Task Created Automatically
-              </p>
-              <p className="mt-2 text-sm font-bold text-white">Follow up with Alex Leader</p>
-              <p className="mt-1 text-xs text-zinc-400">Due tomorrow · High priority · Assigned: you</p>
-              <div className="mt-3 flex items-center gap-2">
-                <div
-                  className="rounded-full px-2 py-0.5 text-[10px] font-semibold"
-                  style={{ background: 'rgba(92,184,92,0.18)', color: '#5cb85c' }}
-                >
-                  from LeaderLeads
-                </div>
-                <div
-                  className="rounded-full px-2 py-0.5 text-[10px] font-semibold"
-                  style={{ background: 'rgba(255,255,255,0.08)', color: '#a1a1aa' }}
-                >
-                  in progress
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </FadeIn>
       </div>
@@ -397,23 +370,23 @@ function DataBornSection() {
 const STEPS = [
   {
     step: '01',
-    title: 'Connect your data.',
-    body: 'Link LeaderTask to your LeaderLeads and LeaderHQ account. Your leads, contacts, and activity are instantly available.',
+    title: 'Connect your channels.',
+    body: 'Link Facebook, Instagram, LinkedIn, X, TikTok, and YouTube. One setup, every platform — done in under five minutes.',
   },
   {
     step: '02',
-    title: 'Tasks appear automatically.',
-    body: 'Every new lead, meeting request, or follow-up creates a task in your board — pre-filled with context from the real event.',
+    title: 'Load the queue.',
+    body: 'Batch your content once a week. Write or import posts, set the schedule, and LeaderStreams lines them up across your team.',
   },
   {
     step: '03',
-    title: 'Assign & track.',
-    body: 'Assign tasks to team members, set due dates, and add subtasks. Progress is visible across the whole team in real time.',
+    title: 'Approve and publish.',
+    body: 'Leaders approve team content before it goes live. Reps get notified when posts are ready. No chasing, no micromanaging.',
   },
   {
     step: '04',
-    title: 'Close the loop.',
-    body: 'Mark tasks done and watch your pipeline clear. Reminders fire automatically so nothing gets dropped between check-ins.',
+    title: 'Track performance.',
+    body: 'See what\'s working — top posts, best times, platform breakdowns. Refine the strategy without leaving LeaderStreams.',
   },
 ];
 
@@ -423,10 +396,10 @@ function HowItWorksSection() {
       <FadeIn>
         <div className="text-center">
           <h2 className="text-3xl font-bold tracking-tight text-brand-navy sm:text-4xl">
-            From data to done in four steps.
+            Batch once. Publish all week.
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-lg text-zinc-600">
-            No manual entry. No guesswork. Just tasks that match your real workflow.
+            Twenty minutes on Monday keeps your whole team visible every day of the week.
           </p>
         </div>
       </FadeIn>
@@ -448,8 +421,9 @@ function HowItWorksSection() {
 /* --------------------------------------------------------- Integrations -- */
 
 const INTEGRATIONS = [
-  'LeaderLeads', 'LeaderCal', 'LeaderSend', 'Google Workspace',
-  'Outlook', 'Slack', 'Zapier', 'Postmark', 'Salesforce', 'HubSpot',
+  'Facebook', 'Instagram', 'LinkedIn', 'X / Twitter',
+  'TikTok', 'YouTube', 'LeaderLeads', 'LeaderSend',
+  'LeaderTask', 'LeaderCal', 'Zapier', 'RSS Feeds',
 ];
 
 function IntegrationsSection() {
@@ -458,10 +432,10 @@ function IntegrationsSection() {
       <div className="mx-auto max-w-5xl px-4 py-16 md:px-6 md:py-20 text-center">
         <FadeIn>
           <h2 className="text-2xl font-bold text-brand-navy sm:text-3xl">
-            Works with the tools you already use.
+            Every channel. Every tool. One place.
           </h2>
           <p className="mx-auto mt-3 max-w-lg text-base text-zinc-600">
-            Native Leader Suite integration plus the apps your team already lives in.
+            Native Leader Suite integration plus every social platform your team is already on.
           </p>
         </FadeIn>
         <div className="mt-10 flex flex-wrap justify-center gap-3">
@@ -487,11 +461,11 @@ const TIERS = [
     period: 'forever',
     description: 'For solo leaders getting started.',
     features: [
-      'Up to 50 tasks per month',
-      '1 workspace',
-      'Priority & status tracking',
-      'Subtasks & comments',
-      'LeaderLeads integration',
+      'Up to 10 scheduled posts / mo',
+      '3 connected social accounts',
+      'Content queue',
+      'Basic analytics',
+      'Leader Suite SSO',
     ],
     cta: 'Start for free',
     href: `${APP_URL}/signup`,
@@ -499,15 +473,16 @@ const TIERS = [
   },
   {
     name: 'Team',
-    price: '$12',
+    price: '$18',
     period: 'per user / mo',
     description: 'For growing field-leader teams.',
     features: [
-      'Unlimited tasks',
-      'Unlimited workspaces & lists',
-      'Full team visibility',
-      'Due-date email reminders',
-      'Ingest API + webhooks',
+      'Unlimited scheduled posts',
+      'Unlimited social accounts',
+      'Team content calendar',
+      'Approval workflow',
+      'Analytics dashboard',
+      'Content library',
       'All Leader Suite integrations',
     ],
     cta: 'Start Team trial',
@@ -516,14 +491,15 @@ const TIERS = [
   },
   {
     name: 'Executive',
-    price: '$29',
+    price: '$39',
     period: 'per user / mo',
-    description: 'For organizations that run on data.',
+    description: 'For organizations that run on content.',
     features: [
       'Everything in Team',
+      'Brand voice AI',
+      'RSS auto-publish',
       'Priority support',
       'Audit logs',
-      'Custom ingest keys per integration',
       'SSO enforcement',
       'Dedicated onboarding',
     ],
@@ -542,7 +518,7 @@ function PricingSection() {
             Straightforward pricing.
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-lg text-zinc-600">
-            Start free. Upgrade only when your team is ready.
+            Start free. Upgrade when your team is ready to scale.
           </p>
         </div>
       </FadeIn>
@@ -555,7 +531,7 @@ function PricingSection() {
                   ? 'border-brand-green shadow-brand-green/15 shadow-lg'
                   : 'border-zinc-200 bg-white'
               }`}
-              style={tier.featured ? { background: 'color-mix(in srgb, #5cb85c 5%, #fff)' } : {}}
+              style={tier.featured ? { background: 'color-mix(in srgb, #5CAC23 5%, #fff)' } : {}}
             >
               {tier.featured && (
                 <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
@@ -607,13 +583,13 @@ function FinalCta() {
     <section className="bg-brand-navy py-20 text-center text-white md:py-24">
       <FadeIn>
         <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-          Stop dropping follow-ups.
+          Stop going dark between events.
           <br />
-          Start closing the loop.
+          Stay visible every single day.
         </h2>
         <p className="mx-auto mt-4 max-w-lg text-lg text-zinc-300">
-          LeaderTask keeps your team on track — tasks born from real data,
-          visible to everyone, and never forgotten.
+          LeaderStreams keeps your team posting consistently — batch once,
+          publish everywhere, never miss a day.
         </p>
         <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
           <a
