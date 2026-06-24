@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { SuiteBar, SiteNav, SiteFooter, FadeIn } from '@leader/marketing-ui';
 
 const APP_URL = 'https://streams.leaderhq.io';
-const WORDMARK_SRC = '/brand/LeaderStreams_wordmark.png';
+const WORDMARK_SRC = '/brand/LeaderStreams_wordmark.svg';
 
 const NAV_LINKS = [
   { label: 'How It Works', href: '/how-it-works' },

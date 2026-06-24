@@ -6,7 +6,7 @@ import { MarketingIcon, type MarketingIconName } from './_marketing/icons';
 
 const SITE_URL = 'https://leaderstreams.io';
 const APP_URL = 'https://streams.leaderhq.io';
-const WORDMARK_SRC = '/brand/LeaderStreams_wordmark.png';
+const WORDMARK_SRC = '/brand/LeaderStreams_wordmark.svg';
 
 const STREAMS_PHRASES = [
   'your whole network.',

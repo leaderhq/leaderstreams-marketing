@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { SuiteBar, SiteNav, SiteFooter } from '@leader/marketing-ui';
 
 const APP_URL = 'https://streams.leaderhq.io';
-const WORDMARK_SRC = '/brand/LeaderStreams_wordmark.png';
+const WORDMARK_SRC = '/brand/LeaderStreams_wordmark.svg';
 
 export const metadata: Metadata = {
   title: 'Blog — LeaderStreams',

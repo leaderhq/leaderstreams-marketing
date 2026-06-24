@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 const LAST_UPDATED = 'June 2026';
 
-const WORDMARK_SRC = '/brand/LeaderStreams_wordmark.png';
+const WORDMARK_SRC = '/brand/LeaderStreams_wordmark.svg';
 
 const NAV_LINKS = [
   { label: 'How It Works', href: '/how-it-works' },

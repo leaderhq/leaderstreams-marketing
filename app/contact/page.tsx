@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 // inbound on streams.leaderhq.io. Keeps this page a server component.
 const SUPPORT_EMAIL = 'support@leaderhq.io';
 
-const WORDMARK_SRC = '/brand/LeaderStreams_wordmark.png';
+const WORDMARK_SRC = '/brand/LeaderStreams_wordmark.svg';
 
 const NAV_LINKS = [
   { label: 'How It Works', href: '/how-it-works' },
