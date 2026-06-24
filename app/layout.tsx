@@ -15,8 +15,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://leaderstreams.io"),
-  title: "LeaderStreams — Social publishing for your entire network",
-  description: "Schedule and publish to every social channel for your whole team from one calendar. Built for field leaders in network marketing.",
+  title: "LeaderStreams — Live Streaming for Leaders",
+  description: "Social scheduling for field leaders. Schedule and publish to every social channel for your whole team from one calendar. Built for network marketing.",
   applicationName: "LeaderStreams",
   manifest: "/manifest.webmanifest",
   appleWebApp: {
@@ -28,18 +28,18 @@ export const metadata: Metadata = {
     type: "website",
     siteName: "LeaderStreams",
     title: "LeaderStreams — Every post, scheduled and published.",
-    description: "Social publishing built for field leaders — schedule and publish to every channel for your whole team from one calendar.",
+    description: "Social scheduling for field leaders — schedule and publish to every channel for your whole team from one calendar.",
     url: "https://leaderstreams.io",
   },
   twitter: {
     card: "summary_large_image",
     title: "LeaderStreams — Every post, scheduled and published.",
-    description: "Social publishing built for field leaders — schedule and publish to every channel for your whole team from one calendar.",
+    description: "Social scheduling for field leaders — schedule and publish to every channel for your whole team from one calendar.",
   },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0d1b2e",
+  themeColor: "#06163E",
 };
 
 export default function RootLayout({
