@@ -12,10 +12,10 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 
-  /* LeaderLeads brand palette — source of truth, matches the favicon */
-  --color-brand-navy: #0d1b2e;
-  --color-brand-green: #5cb85c;
-  --color-brand-blue: #0160ed;
+  /* LeaderStreams brand palette — canonical 2026 tokens (Jay 2026-06-16) */
+  --color-brand-navy: #06163E;
+  --color-brand-green: #5CAC23;
+  --color-brand-blue: #1862EA;
 }
 
 @media (prefers-color-scheme: dark) {

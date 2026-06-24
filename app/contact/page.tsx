@@ -3,32 +3,73 @@ import { SuiteBar, SiteNav, SiteFooter, FadeIn } from '@leader/marketing-ui';
 import { MarketingIcon } from '@/app/_marketing/icons';
 
 export const metadata: Metadata = {
-  title: 'Contact — LeaderLeads',
+  title: 'Contact — LeaderStreams',
   description:
-    'Get in touch with LeaderLeads — product questions, team plans, custom pricing, and partnership inquiries. We respond within one business day.',
+    'Get in touch with LeaderStreams — product questions, team plans, custom pricing, and partnership inquiries. We respond within one business day.',
   alternates: { canonical: '/contact' },
 };
 
 // Marketing form posts to mailto for now — the app/auth origin handles real
-// inbound on leads.leaderhq.io. Keeps this page a server component.
+// inbound on streams.leaderhq.io. Keeps this page a server component.
 const SUPPORT_EMAIL = 'support@leaderhq.io';
+
+const WORDMARK_SRC = '/brand/LeaderStreams_wordmark.png';
+
+const NAV_LINKS = [
+  { label: 'How It Works', href: '/how-it-works' },
+  { label: 'For Teams', href: '/for-teams' },
+  { label: 'Pricing', href: '/pricing' },
+  { label: 'Blog', href: '/blog' },
+];
+
+const FOOTER_COLUMNS = [
+  {
+    heading: 'Product',
+    links: [
+      { label: 'How It Works', href: '/how-it-works' },
+      { label: 'For Teams', href: '/for-teams' },
+      { label: 'Pricing', href: '/pricing' },
+      { label: 'System Status', href: 'https://leaderhq.io/status', external: true },
+    ],
+  },
+  {
+    heading: 'Solutions',
+    links: [
+      { label: 'Sales Teams', href: '/for-teams' },
+      { label: 'Field Leaders', href: '/for-teams' },
+      { label: 'Network Marketing', href: '/for-teams' },
+      { label: 'Blog & Resources', href: '/blog' },
+    ],
+  },
+  {
+    heading: 'Company',
+    links: [
+      { label: 'About LeaderHQ', href: '/about' },
+      { label: 'Contact', href: '/contact' },
+      { label: 'Privacy Policy', href: '/privacy' },
+      { label: 'Terms of Service', href: '/terms' },
+      { label: 'Security & GDPR', href: '/security' },
+    ],
+  },
+];
 
 export default function ContactPage() {
   return (
     <div className="flex min-h-screen flex-col bg-white text-zinc-900">
-      <SuiteBar appUrl="https://task.leaderhq.io" />
+      <SuiteBar appUrl="https://streams.leaderhq.io" />
       <SiteNav
-        productSuffix="Leads"
-        links={[{ label: "How It Works", href: "/how-it-works" }, { label: "Memory Moment", href: "/memory-moment" }, { label: "Solutions", href: "#" }, { label: "Blog", href: "/blog" }]}
-        ctaLabel="Get Your Free Card"
-        ctaHref="/signup"
-        loginHref="https://leads.leaderhq.io/login"
+        productSuffix="Streams"
+        wordmarkSrc={WORDMARK_SRC}
+        links={NAV_LINKS}
+        ctaLabel="Get Started Free"
+        ctaHref="https://streams.leaderhq.io/signup"
+        loginHref="https://streams.leaderhq.io/login"
       />
       <main className="flex-1">
         {/* Hero */}
         <section
           className="text-center text-white"
-          style={{ background: '#0d1b2e' }}
+          style={{ background: '#06163E' }}
         >
           <div className="mx-auto max-w-[560px] px-4 py-20 sm:px-6 sm:py-24">
             <FadeIn>
@@ -199,8 +240,9 @@ export default function ContactPage() {
         </section>
       </main>
       <SiteFooter
-        productSuffix="Leads"
-        columns={[{"heading":"Product","links":[{"label":"How It Works","href":"/how-it-works"},{"label":"Memory Moment","href":"/memory-moment"},{"label":"Event Mode","href":"/how-it-works#event-mode"},{"label":"Pricing","href":"/pricing"},{"label":"System Status","href":"https://leaderhq.io/status"}]},{"heading":"Solutions","links":[{"label":"Network Marketing","href":"/for-network-marketing"},{"label":"Conferences & Events","href":"/for-conferences"},{"label":"Summer Sales","href":"/for-summer-sales"},{"label":"Sales Teams","href":"/for-teams"},{"label":"Blog & Resources","href":"/blog"}]},{"heading":"Company","links":[{"label":"About LeaderHQ","href":"/about"},{"label":"Contact","href":"/contact"},{"label":"Privacy Policy","href":"/privacy"},{"label":"Terms of Service","href":"/terms"},{"label":"Security & GDPR","href":"/security"}]}]}
+        productSuffix="Streams"
+        wordmarkSrc={WORDMARK_SRC}
+        columns={FOOTER_COLUMNS}
       />
     </div>
   );

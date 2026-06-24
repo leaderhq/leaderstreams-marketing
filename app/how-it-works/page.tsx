@@ -2,115 +2,111 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { SuiteBar, SiteNav, SiteFooter, FadeIn } from '@leader/marketing-ui';
 
-const APP_URL = 'https://leads.leaderhq.io';
+const APP_URL = 'https://streams.leaderhq.io';
+const WORDMARK_SRC = '/brand/LeaderStreams_wordmark.png';
+
+const NAV_LINKS = [
+  { label: 'How It Works', href: '/how-it-works' },
+  { label: 'For Teams', href: '/for-teams' },
+  { label: 'Pricing', href: '/pricing' },
+  { label: 'Blog', href: '/blog' },
+];
+
+const FOOTER_COLUMNS = [
+  {
+    heading: 'Product',
+    links: [
+      { label: 'How It Works', href: '/how-it-works' },
+      { label: 'For Teams', href: '/for-teams' },
+      { label: 'Pricing', href: '/pricing' },
+      { label: 'System Status', href: 'https://leaderhq.io/status', external: true },
+    ],
+  },
+  {
+    heading: 'Solutions',
+    links: [
+      { label: 'Sales Teams', href: '/for-teams' },
+      { label: 'Field Leaders', href: '/for-teams' },
+      { label: 'Network Marketing', href: '/for-teams' },
+      { label: 'Blog & Resources', href: '/blog' },
+    ],
+  },
+  {
+    heading: 'Company',
+    links: [
+      { label: 'About LeaderHQ', href: '/about' },
+      { label: 'Contact', href: '/contact' },
+      { label: 'Privacy Policy', href: '/privacy' },
+      { label: 'Terms of Service', href: '/terms' },
+      { label: 'Security & GDPR', href: '/security' },
+    ],
+  },
+];
 
 export const metadata: Metadata = {
-  title: 'How It Works — LeaderLeads',
+  title: 'How It Works — LeaderStreams',
   description:
-    'From handshake to Leader CRM in one tap. Five steps, under two minutes to set up — see exactly how LeaderLeads captures, stamps, and follows up on every lead.',
+    'Batch your content once a week and LeaderStreams publishes to every platform for your whole team. Four steps, under 20 minutes to set up.',
   alternates: { canonical: '/how-it-works' },
 };
-
-const LINK_CLASS = 'text-brand-green font-semibold hover:underline';
 
 const STEPS: { n: number; title: string; body: React.ReactNode }[] = [
   {
     n: 1,
-    title: 'Create your card in 60 seconds',
-    body: 'Click "Get Your Free Card," add your name, title, and contact info. Your professional digital card is live immediately. No design skills, no waiting period, no credit card required. Just a card that works.',
+    title: 'Connect your social channels.',
+    body: 'Link Facebook, Instagram, LinkedIn, X, TikTok, and YouTube in under five minutes. One-time setup covers every platform — done.',
   },
   {
     n: 2,
-    title: 'Add to your wallet. Activate Event Mode.',
-    body: "Add your card to Apple Wallet or Google Wallet — one tap and it's there permanently, available even with no signal. Then activate Event Mode: one tap turns your entire screen into a high-contrast QR that anyone can scan from their camera app with no download required.",
+    title: 'Load the queue.',
+    body: 'Batch your content once a week. Write posts, import from your content library, or let the Brand Voice AI draft them. Set the schedule and LeaderStreams lines them up across your whole team.',
   },
   {
     n: 3,
-    title: 'Share at any event — QR, text, link, or phone tap',
-    body: (
-      <>
-        At your next meeting, expo, conference, or door-to-door stop, share however fits the
-        moment. Hold up the QR screen. Text the link. Or use NFC — Near-Field Communication, the built-in feature on most modern smartphones that transfers your contact in one touch, no scanning required. Think of it like a digital handshake: two phones tap and it&apos;s done.{' '}
-        <Link href="/how-it-works#event-mode" className={LINK_CLASS}>
-          Event Mode
-        </Link>{' '}
-        means the person you&apos;re talking to saves your contact in seconds
-        with no friction on their end — no app, no login, no steps.
-      </>
-    ),
+    title: 'Approve and publish.',
+    body: 'Leaders review and approve team content before anything goes live. Reps get notified when their posts are ready. No chasing, no micromanaging — just a clean approval flow.',
   },
   {
     n: 4,
-    title: 'Memory Moment — stamp the meeting (Pro)',
-    body: (
-      <>
-        For your warmest conversations, take a quick photo together.{' '}
-        <Link href="/memory-moment" className={LINK_CLASS}>
-          Memory Moment
-        </Link>{' '}
-        stamps the date, time, and location and emails it to both of you within
-        seconds. They have the context. You have the opener. Tuesday&apos;s
-        follow-up writes itself before you&apos;ve opened a blank email.
-      </>
-    ),
-  },
-  {
-    n: 5,
-    title: 'Follow up with everyone. Miss no one.',
-    body: (
-      <>
-        Your lead inbox captures every person who engages with your card,
-        organized by timestamp. Your running list is always current and ready
-        to work. Contacts flow natively into{' '}
-        <Link href="/for-teams" className={LINK_CLASS}>
-          Leader CRM
-        </Link>{' '}
-        — the CRM built for the Leader Suite — or connect to Salesforce,
-        HubSpot, and hundreds of other tools via{' '}
-        <a
-          href="https://zapier.com"
-          target="_blank"
-          rel="noreferrer"
-          className={LINK_CLASS}
-        >
-          Zapier
-        </a>
-        . The reconstruction work that used to take an hour after every event
-        now takes minutes.
-      </>
-    ),
+    title: 'Track what works.',
+    body: 'See which posts drive engagement, your best publishing times, and platform-by-platform breakdowns. Refine the strategy each week without ever leaving LeaderStreams.',
   },
 ];
 
 const FAQS = [
   {
-    q: 'Do they need to download an app?',
-    a: "No. Never. The person receiving your card needs only a phone camera to scan your QR code. No app, no account, no friction on their side. That's intentional — every extra step they have to take is a lead you lose before the conversation even ends.",
+    q: 'Does each rep need to log in to post?',
+    a: "No. Once you load the queue and approve the content, LeaderStreams publishes automatically on schedule. Reps can stay hands-off all week — the posts go out whether they're at an event, on the doors, or asleep.",
   },
   {
-    q: 'What if the venue wifi goes down?',
-    a: 'Two things work completely offline after you\'ve opened them once. Event Mode saves your card locally the first time you load it — after that, the QR generates on-device with no server call, no wifi, no signal required. Your digital wallet card (Apple Wallet or Google Wallet) is stored on your device the moment you add it, available even in airplane mode. Open Event Mode once before you leave for the venue and you\'re covered. Hold up the screen, they scan, done.',
+    q: 'Can I publish to accounts I don't personally own?',
+    a: "Yes — that's the core team feature. You connect your reps' accounts (or they connect them themselves during onboarding) and you schedule for their channels from the team calendar. Each rep's content goes to their own accounts on their schedule.",
   },
   {
-    q: 'How does Memory Moment work exactly?',
-    a: 'Memory Moment requires a contact first — the person needs to have scanned your card so they exist in your leads. Once they do, open that lead, tap Add Memory Moment, and it opens your camera. Take the photo together right there in the moment. LeaderLeads automatically stamps the date, time, and location on the image and emails it to both of you within seconds. No editing, no uploading, no extra steps from either side.',
+    q: 'What social platforms does LeaderStreams support?',
+    a: 'Facebook, Instagram, LinkedIn, X (Twitter), TikTok, and YouTube. Native integrations for all six — no third-party bridges required.',
   },
   {
-    q: 'How does it flow into my CRM?',
-    a: "Every contact that engages with your card appears in your lead inbox with a timestamp. If you want it fully automatic — contacts flowing into your CRM the moment someone scans your card — that requires LeaderCRM, which is built to work hand-in-hand with LeaderLeads. For any other system (Salesforce, HubSpot, etc.) you export or upload your contacts manually, or set up a Zapier automation yourself. Zapier can handle the transfer once configured, but it is not automatic out of the box.",
+    q: 'How does the Brand Voice AI work?',
+    a: "You give LeaderStreams a few examples of your best posts and describe your brand voice. It learns the style and drafts new posts you can approve, edit, and schedule. It's a starting point that saves the blank-page problem — not a replacement for your judgment.",
+  },
+  {
+    q: 'Does it connect to the rest of the Leader Suite?',
+    a: 'Yes. Leader Suite SSO means one login covers LeaderStreams, LeaderLeads, LeaderCal, LeaderSend, and all other suite products. And LeaderSend integration lets you automatically turn your best social posts into email campaigns.',
   },
 ];
 
 export default function HowItWorksPage() {
   return (
     <div className="flex min-h-screen flex-col bg-white text-zinc-900">
-      <SuiteBar appUrl="https://task.leaderhq.io" />
+      <SuiteBar appUrl={APP_URL} />
       <SiteNav
-        productSuffix="Leads"
-        links={[{ label: "How It Works", href: "/how-it-works" }, { label: "Memory Moment", href: "/memory-moment" }, { label: "Solutions", href: "#" }, { label: "Blog", href: "/blog" }]}
-        ctaLabel="Get Your Free Card"
-        ctaHref="/signup"
-        loginHref="https://leads.leaderhq.io/login"
+        productSuffix="Streams"
+        wordmarkSrc={WORDMARK_SRC}
+        links={NAV_LINKS}
+        ctaLabel="Get Started Free"
+        ctaHref={`${APP_URL}/signup`}
+        loginHref={`${APP_URL}/login`}
       />
       <main className="flex-1">
         <Hero />
@@ -119,8 +115,9 @@ export default function HowItWorksPage() {
         <CtaBand />
       </main>
       <SiteFooter
-        productSuffix="Leads"
-        columns={[{"heading":"Product","links":[{"label":"How It Works","href":"/how-it-works"},{"label":"Memory Moment","href":"/memory-moment"},{"label":"Event Mode","href":"/how-it-works#event-mode"},{"label":"Pricing","href":"/pricing"},{"label":"System Status","href":"https://leaderhq.io/status"}]},{"heading":"Solutions","links":[{"label":"Network Marketing","href":"/for-network-marketing"},{"label":"Conferences & Events","href":"/for-conferences"},{"label":"Summer Sales","href":"/for-summer-sales"},{"label":"Sales Teams","href":"/for-teams"},{"label":"Blog & Resources","href":"/blog"}]},{"heading":"Company","links":[{"label":"About LeaderHQ","href":"/about"},{"label":"Contact","href":"/contact"},{"label":"Privacy Policy","href":"/privacy"},{"label":"Terms of Service","href":"/terms"},{"label":"Security & GDPR","href":"/security"}]}]}
+        productSuffix="Streams"
+        wordmarkSrc={WORDMARK_SRC}
+        columns={FOOTER_COLUMNS}
       />
     </div>
   );
@@ -130,21 +127,18 @@ function Hero() {
   return (
     <section
       className="text-white"
-      style={{ background: '#0d1b2e' }}
+      style={{ background: '#06163E' }}
     >
       <div className="mx-auto max-w-[720px] px-4 py-20 text-center sm:px-6 sm:py-24">
         <FadeIn>
-          <span className="inline-block rounded-full bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-brand-green">
-            Simple by design
-          </span>
           <h1 className="mt-5 text-4xl font-extrabold leading-[1.08] tracking-tight sm:text-5xl">
-            From handshake to CRM
+            Batch once.
             <br />
-            in one tap.
+            Publish all week.
           </h1>
           <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-zinc-300">
-            Five steps. Under two minutes for setup. Works for the life of the
-            card — no maintenance, no reprints, no expiration.
+            Four steps. Under 20 minutes to set up. Your whole team stays
+            visible on every platform — automatically, all week.
           </p>
         </FadeIn>
       </div>
@@ -180,7 +174,7 @@ function Faqs() {
   return (
     <section
       className="border-y border-zinc-100"
-      style={{ background: 'color-mix(in srgb, #0d1b2e 4%, #fff)' }}
+      style={{ background: 'color-mix(in srgb, #06163E 4%, #fff)' }}
     >
       <div className="mx-auto max-w-[720px] px-4 py-20 sm:px-6 sm:py-24">
         <FadeIn>
@@ -207,25 +201,25 @@ function Faqs() {
 
 function CtaBand() {
   return (
-    <section style={{ background: '#0d1b2e' }}>
+    <section style={{ background: '#06163E' }}>
       <div className="mx-auto max-w-[820px] px-4 py-20 text-center sm:px-6 sm:py-24">
         <FadeIn>
           <span className="text-sm font-semibold uppercase tracking-wider text-brand-green">
             Ready to see it in action?
           </span>
           <h2 className="mt-4 text-3xl font-bold tracking-tight text-white sm:text-4xl">
-            Your card is free. Setup is 60 seconds.
+            Twenty minutes. All week covered.
           </h2>
           <p className="mx-auto mt-4 max-w-lg text-lg text-zinc-300">
-            Your next event is the test. Show up with a system instead of a
-            stack of paper.
+            Set up your queue Monday morning and every rep on your team posts
+            consistently all week without thinking about it.
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <a
-              href={`${APP_URL}/login`}
+              href={`${APP_URL}/signup`}
               className="inline-flex min-h-[44px] items-center justify-center rounded-xl bg-brand-green px-7 text-base font-semibold text-white shadow-lg shadow-black/20 transition hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
             >
-              Get Your Free Card
+              Get Started Free
             </a>
             <Link
               href="/pricing"

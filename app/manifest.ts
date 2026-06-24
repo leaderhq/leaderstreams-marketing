@@ -1,21 +1,21 @@
 import type { MetadataRoute } from 'next';
 
 /**
- * PWA manifest — makes LeaderLeads installable ("Add to Home Screen") with a
+ * PWA manifest — makes LeaderStreams installable ("Add to Home Screen") with a
  * standalone, app-like shell. Next serves this at /manifest.webmanifest.
  */
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'LeaderLeads',
-    short_name: 'LeaderLeads',
+    name: 'LeaderStreams',
+    short_name: 'LeaderStreams',
     description:
-      'Your digital business card that captures every lead and remembers where you met.',
-    start_url: '/dashboard',
+      'Social scheduling for field leaders. Schedule and publish to every platform for your whole team from one calendar.',
+    start_url: '/',
     scope: '/',
     display: 'standalone',
     orientation: 'portrait',
     background_color: '#ffffff',
-    theme_color: '#0d1b2e',
+    theme_color: '#06163E',
     categories: ['business', 'productivity'],
     icons: [
       { src: '/icon-192.png', sizes: '192x192', type: 'image/png' },

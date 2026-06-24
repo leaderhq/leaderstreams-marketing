@@ -2,24 +2,65 @@ import type { Metadata } from 'next';
 import { SuiteBar, SiteNav, SiteFooter } from '@leader/marketing-ui';
 
 export const metadata: Metadata = {
-  title: 'Terms & Conditions — LeaderLeads',
+  title: 'Terms & Conditions — LeaderStreams',
   description:
-    'The terms that govern your use of LeaderLeads, a product of LeaderHQ.',
+    'The terms that govern your use of LeaderStreams, a product of LeaderHQ.',
   alternates: { canonical: '/terms' },
 };
 
 const LAST_UPDATED = 'June 2026';
 
+const WORDMARK_SRC = '/brand/LeaderStreams_wordmark.png';
+
+const NAV_LINKS = [
+  { label: 'How It Works', href: '/how-it-works' },
+  { label: 'For Teams', href: '/for-teams' },
+  { label: 'Pricing', href: '/pricing' },
+  { label: 'Blog', href: '/blog' },
+];
+
+const FOOTER_COLUMNS = [
+  {
+    heading: 'Product',
+    links: [
+      { label: 'How It Works', href: '/how-it-works' },
+      { label: 'For Teams', href: '/for-teams' },
+      { label: 'Pricing', href: '/pricing' },
+      { label: 'System Status', href: 'https://leaderhq.io/status', external: true },
+    ],
+  },
+  {
+    heading: 'Solutions',
+    links: [
+      { label: 'Sales Teams', href: '/for-teams' },
+      { label: 'Field Leaders', href: '/for-teams' },
+      { label: 'Network Marketing', href: '/for-teams' },
+      { label: 'Blog & Resources', href: '/blog' },
+    ],
+  },
+  {
+    heading: 'Company',
+    links: [
+      { label: 'About LeaderHQ', href: '/about' },
+      { label: 'Contact', href: '/contact' },
+      { label: 'Privacy Policy', href: '/privacy' },
+      { label: 'Terms of Service', href: '/terms' },
+      { label: 'Security & GDPR', href: '/security' },
+    ],
+  },
+];
+
 export default function TermsPage() {
   return (
     <div className="flex min-h-screen flex-col bg-white text-zinc-900">
-      <SuiteBar appUrl="https://task.leaderhq.io" />
+      <SuiteBar appUrl="https://streams.leaderhq.io" />
       <SiteNav
-        productSuffix="Leads"
-        links={[{ label: "How It Works", href: "/how-it-works" }, { label: "Memory Moment", href: "/memory-moment" }, { label: "Solutions", href: "#" }, { label: "Blog", href: "/blog" }]}
-        ctaLabel="Get Your Free Card"
-        ctaHref="/signup"
-        loginHref="https://leads.leaderhq.io/login"
+        productSuffix="Streams"
+        wordmarkSrc={WORDMARK_SRC}
+        links={NAV_LINKS}
+        ctaLabel="Get Started Free"
+        ctaHref="https://streams.leaderhq.io/signup"
+        loginHref="https://streams.leaderhq.io/login"
       />
       <main className="flex-1">
         <article className="mx-auto max-w-[720px] px-4 py-12 sm:px-6 sm:py-16">
@@ -49,22 +90,22 @@ export default function TermsPage() {
             <section>
               <p>
                 These Terms &amp; Conditions (&ldquo;Terms&rdquo;) govern your
-                access to and use of LeaderLeads (&ldquo;LeaderLeads,&rdquo;
+                access to and use of LeaderStreams (&ldquo;LeaderStreams,&rdquo;
                 &ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;), a
                 product of LeaderHQ, a division of Know Freedom Technologies. By
                 creating an account or using the service, you agree to these
-                Terms. If you do not agree, do not use LeaderLeads.
+                Terms. If you do not agree, do not use LeaderStreams.
               </p>
             </section>
 
             <Section title="Acceptable use">
               <p>
-                You agree to use LeaderLeads only for lawful purposes and in
+                You agree to use LeaderStreams only for lawful purposes and in
                 accordance with these Terms. You will not use the service to
-                store, send, or distribute content that is illegal, infringing,
-                deceptive, harassing, or harmful, and you will comply with all
-                applicable laws, including those governing electronic
-                communications and the contacts you capture.
+                schedule, publish, or distribute content that is illegal,
+                infringing, deceptive, harassing, or harmful, and you will comply
+                with all applicable laws, including those governing electronic
+                communications and the social platforms you connect.
               </p>
             </Section>
 
@@ -74,8 +115,19 @@ export default function TermsPage() {
                 account and for keeping your sign-in credentials secure. You must
                 provide accurate information, promptly update it as needed, and
                 notify us of any unauthorized use of your account. You are
-                responsible for the card content and lead data you collect and
-                for having any necessary permission to collect it.
+                responsible for the content you schedule and for having any
+                necessary permission to publish it on connected platforms.
+              </p>
+            </Section>
+
+            <Section title="Connected social accounts">
+              <p>
+                By connecting a social account to LeaderStreams, you authorize us
+                to publish content on your behalf using that account. You remain
+                responsible for compliance with each platform&apos;s own terms of
+                service. We are not responsible for actions taken by social
+                platforms, including content removal, account suspension, or
+                policy enforcement.
               </p>
             </Section>
 
@@ -104,7 +156,7 @@ export default function TermsPage() {
 
             <Section title="Disclaimer of warranties">
               <p>
-                LeaderLeads is provided &ldquo;as is&rdquo; and &ldquo;as
+                LeaderStreams is provided &ldquo;as is&rdquo; and &ldquo;as
                 available,&rdquo; without warranties of any kind, whether
                 express or implied, including any implied warranties of
                 merchantability, fitness for a particular purpose, and
@@ -127,11 +179,11 @@ export default function TermsPage() {
 
             <Section title="Termination">
               <p>
-                You may stop using LeaderLeads and close your account at any time.
-                We may suspend or terminate your access if you violate these Terms
-                or if we discontinue the service. Upon termination, your right to
-                use the service ends, and we may delete your data as described in
-                our Privacy Policy.
+                You may stop using LeaderStreams and close your account at any
+                time. We may suspend or terminate your access if you violate these
+                Terms or if we discontinue the service. Upon termination, your
+                right to use the service ends, and we may delete your data as
+                described in our Privacy Policy.
               </p>
             </Section>
 
@@ -139,7 +191,7 @@ export default function TermsPage() {
               <p>
                 We may update these Terms from time to time. When we do, we will
                 revise the &ldquo;Last updated&rdquo; date above. Continued use of
-                LeaderLeads after a change constitutes acceptance of the updated
+                LeaderStreams after a change constitutes acceptance of the updated
                 Terms.
               </p>
             </Section>
@@ -174,8 +226,9 @@ export default function TermsPage() {
         </article>
       </main>
       <SiteFooter
-        productSuffix="Leads"
-        columns={[{"heading":"Product","links":[{"label":"How It Works","href":"/how-it-works"},{"label":"Memory Moment","href":"/memory-moment"},{"label":"Event Mode","href":"/how-it-works#event-mode"},{"label":"Pricing","href":"/pricing"},{"label":"System Status","href":"https://leaderhq.io/status"}]},{"heading":"Solutions","links":[{"label":"Network Marketing","href":"/for-network-marketing"},{"label":"Conferences & Events","href":"/for-conferences"},{"label":"Summer Sales","href":"/for-summer-sales"},{"label":"Sales Teams","href":"/for-teams"},{"label":"Blog & Resources","href":"/blog"}]},{"heading":"Company","links":[{"label":"About LeaderHQ","href":"/about"},{"label":"Contact","href":"/contact"},{"label":"Privacy Policy","href":"/privacy"},{"label":"Terms of Service","href":"/terms"},{"label":"Security & GDPR","href":"/security"}]}]}
+        productSuffix="Streams"
+        wordmarkSrc={WORDMARK_SRC}
+        columns={FOOTER_COLUMNS}
       />
     </div>
   );
@@ -199,4 +252,3 @@ function Section({
     </section>
   );
 }
-
