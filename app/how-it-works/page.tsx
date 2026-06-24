@@ -79,7 +79,7 @@ const FAQS = [
     a: "No. Once you load the queue and approve the content, LeaderStreams publishes automatically on schedule. Reps can stay hands-off all week — the posts go out whether they're at an event, on the doors, or asleep.",
   },
   {
-    q: 'Can I publish to accounts I don't personally own?',
+    q: "Can I publish to accounts I don't personally own?",
     a: "Yes — that's the core team feature. You connect your reps' accounts (or they connect them themselves during onboarding) and you schedule for their channels from the team calendar. Each rep's content goes to their own accounts on their schedule.",
   },
   {
