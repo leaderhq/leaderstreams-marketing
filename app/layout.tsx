@@ -19,6 +19,13 @@ export const metadata: Metadata = {
   description: "Social scheduling for field leaders. Schedule and publish to every social channel for your whole team from one calendar. Built for network marketing.",
   applicationName: "LeaderStreams",
   manifest: "/manifest.webmanifest",
+  icons: {
+    icon: [
+      { url: "/favicon-light.png", type: "image/png", media: "(prefers-color-scheme: light)" },
+      { url: "/favicon-dark.png", type: "image/png", media: "(prefers-color-scheme: dark)" },
+      { url: "/favicon.ico", sizes: "any" },
+    ],
+  },
   appleWebApp: {
     capable: true,
     title: "LeaderStreams",
